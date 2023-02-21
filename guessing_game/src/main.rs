@@ -7,17 +7,23 @@ fn main() {
     let mut guess = String::new();
 
     println!("Guess the number!");
-    println!("Please input your guess.");
 
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+    loop {
+        println!("Please input your guess.");
 
-    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
 
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small"),
-        Ordering::Greater => println!("Too big"),
-        Ordering::Equal => println!("You win"),
+        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small"),
+            Ordering::Greater => println!("Too big"),
+            Ordering::Equal => {
+                println!("You win");
+                break;
+            }
+        }
     }
 }
