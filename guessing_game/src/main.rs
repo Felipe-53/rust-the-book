@@ -9,6 +9,8 @@ fn main() {
     println!("Guess the number!");
 
     loop {
+        let mut guess = String::new();
+
         println!("Please input your guess.");
 
         io::stdin()
