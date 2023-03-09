@@ -1,8 +1,9 @@
+#[derive(Debug)]
 struct User {
     active: bool,
     email: String,
-    sign_in_count: u64,
     username: String,
+    sign_in_count: u64,
 }
 
 fn build_user(email: String, username: String) -> User {
@@ -19,4 +20,6 @@ fn main() {
         String::from("someone@example.com"),
         String::from("someusername123"),
     );
+
+    println!("{:#?}", user1);
 }
