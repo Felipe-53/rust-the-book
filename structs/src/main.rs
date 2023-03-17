@@ -1,25 +1,17 @@
+use uuid::Uuid;
+
 #[derive(Debug)]
-struct User {
-    active: bool,
-    email: String,
-    username: String,
-    sign_in_count: u64,
+struct Customer {
+    id: Uuid,
 }
 
-fn build_user(email: String, username: String) -> User {
-    User {
-        email,
-        username,
-        active: true,
-        sign_in_count: 1,
-    }
+impl Customer {
+    fn clear(self) {}
 }
 
 fn main() {
-    let user1 = build_user(
-        String::from("someone@example.com"),
-        String::from("someusername123"),
-    );
-
-    println!("{:#?}", user1);
+    let customer = Customer { id: Uuid::new_v4() };
+    println!("{:?}", customer);
+    println!("{}", customer.id);
+    customer.clear();
 }
